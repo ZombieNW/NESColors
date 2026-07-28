@@ -15,10 +15,13 @@ def fetch_prompt_values(db_path, table_name):
     cursor = conn.cursor()
     cursor.execute(f"SELECT prompt, value FROM {table_name}")
 
+    count = 0
     prompt_values = defaultdict(list)
     for prompt, value in cursor.fetchall():
+        count += 1
         prompt_values[prompt].append(value)
 
+    print(f"{count} total submissions processed")
     conn.close()
     return prompt_values
 

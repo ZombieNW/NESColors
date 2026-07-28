@@ -3,6 +3,7 @@ from palette import generate_nes_palette
 
 
 def export_pal_file(palette, output_filename):
+    print(f"Generating {output_filename}...")
     pal_data = bytearray()
 
     for hex_color in palette:
@@ -13,6 +14,8 @@ def export_pal_file(palette, output_filename):
 
     with open(output_filename, "wb") as f:
         f.write(pal_data)
+
+    print("Done!")
 
 
 def main():

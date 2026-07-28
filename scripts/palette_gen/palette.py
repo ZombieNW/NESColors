@@ -74,6 +74,7 @@ def generate_nes_palette():
     base_colors = get_base_colors()
     palette = []
 
+    print("Generating palette colors...")
     for row in range(4):
         for col in range(16):
             color = base_colors.get(col, "#000000")
