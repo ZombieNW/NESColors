@@ -79,7 +79,7 @@ def generate_nes_palette():
     for row in range(4):
         for col in range(16):
             color = base_colors.get(col, "#000000")
-            final_color = apply_filter(color, row, col)
+            final_color = apply_filter(color, row)
             palette.append(final_color)
 
     return palette
