@@ -1,4 +1,5 @@
 from color_convert import hex_to_rgb
+from html_preview import export_html_file
 from palette import generate_nes_palette
 
 
@@ -15,12 +16,12 @@ def export_pal_file(palette, output_filename):
     with open(output_filename, "wb") as f:
         f.write(pal_data)
 
-    print("Done!")
-
 
 def main():
     palette = generate_nes_palette()
     export_pal_file(palette, "palette.pal")
+    export_html_file(palette, "preview.html")
+    print("Done!")
 
 
 if __name__ == "__main__":
