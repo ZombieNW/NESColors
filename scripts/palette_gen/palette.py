@@ -10,7 +10,7 @@ from color_convert import (
     rgb_to_oklch,
 )
 
-ROW_LIGHTNESS = [0.4, 0.75, 1.00, 1.5]
+ROW_LIGHTNESS = [0.5, 0.75, 1.00, 1.5]
 
 COLUMN_MAP = {
     "Gray": 0,
@@ -55,13 +55,14 @@ def get_base_colors():
     return base_colors
 
 
-def apply_brightness(hex_color, row):
+def apply_filter(hex_color, row):
     if hex_color == "#000000":
         return "#000000"
 
     r, g, b = hex_to_rgb(hex_color)
     l, c, h = rgb_to_oklch(r, g, b)
 
+    # changing luminance
     if row == 3:
         l = l + (1.0 - l) * 0.5  # pastel "formula"
     else:
@@ -78,7 +79,7 @@ def generate_nes_palette():
     for row in range(4):
         for col in range(16):
             color = base_colors.get(col, "#000000")
-            final_color = apply_brightness(color, row)
+            final_color = apply_filter(color, row, col)
             palette.append(final_color)
 
     return palette
