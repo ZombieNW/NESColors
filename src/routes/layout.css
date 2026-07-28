@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import 'tailwindcss';
+
+body {
+	font-family: 'Jersey 10', sans-serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	background: linear-gradient(180deg, var(--color-mauve-900), var(--color-mauve-950));
+	color: var(--color-mauve-100);
+
+	min-height: 90vh;
+}
